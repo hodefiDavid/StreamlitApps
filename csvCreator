@@ -1,0 +1,98 @@
+# Imports
+# %matplotlib inline
+import math
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import norm
+from sklearn.preprocessing import StandardScaler
+from scipy import stats
+import warnings
+from sklearn.model_selection import train_test_split  # for split datasets
+from sklearn.cluster import KMeans  # use this ML algorithm
+
+
+def algo_to_det(doration, sent, recived) -> int:
+    ans = 0
+    dot = [sent, recived]
+    # k cluster info embeded here
+    centroids = [[487, 2868], [248, 4910544], [238, 30046], [245, 343635]]
+    distance = 4000
+    arr = []
+    arr.append(math.dist(centroids[0], dot))
+    arr.append(math.dist(centroids[1], dot))
+    arr.append(math.dist(centroids[2], dot))
+    arr.append(math.dist(centroids[3], dot))
+    arr.sort()
+    if arr[0] < distance:
+        ans += 1
+    avgSent = 474.2478980792457
+    distSent = 150
+    avgRecive = 4473.532613862158
+    medianRecive = 1661.0
+    medianSent = 249.0
+    distRecive = 1500
+
+    if abs(dot[0] - avgSent) < distSent or abs(dot[0] - medianSent) < distSent:
+        ans += 1
+    if abs(dot[1] - avgRecive) < distRecive or abs(dot[1] - medianRecive) < distRecive:
+        ans += 0.7  # this is the result that we get
+    return ans
+
+
+f_path = "C:\\Users\\david\\Documents\\אריאל\\תשפג חורף\\שיטות לגילוי התקפות סייבר\\New folder\\מטלה 1\\conn_attack.csv"
+'''
+record ID - The unique identifier for each connection record.
+duration_  This feature denotes the number of seconds (rounded) of the connection. For example, a connection for 0.17s or 0.3s would be indicated with a “0” in this field.
+src_bytes This field represents the number of data bytes transferred from the source to the destination (i.e., the amount of out-going bytes from the host).
+dst_bytes This fea
+ture represents the number of data bytes transferred from the destination to the source (i.e., the amount of bytes received by the host).
+'''
+df = pd.read_csv(f_path, names=["record ID", "duration_", "src_bytes", "dst_bytes"], header=None)
+
+# get train data
+
+B = df[["src_bytes", "dst_bytes"]].values
+Y = df["src_bytes"].values
+X = df["dst_bytes"].values
+
+# import xlsxwriter module
+import xlsxwriter
+
+# Workbook() takes one, non-optional, argument
+# which is the filename that we want to create.
+workbook = xlsxwriter.Workbook('Anomaly detection.csv')
+
+# The workbook object is then used to add new
+# worksheet via the add_worksheet() method.
+worksheet = workbook.add_worksheet()
+
+# Use the worksheet object to write
+# data via the write() method.
+worksheet.write('A1', 'record ID')
+worksheet.write('B1', 'is_anomaly')
+index = 2
+rightAns = 0
+for src, dst in B:
+    locID = 'A' + str(index)
+    locAnomaly = 'B' + str(index)
+
+    worksheet.write(locID, index - 2)
+
+    if algo_to_det(0, src, dst) > 1:
+        worksheet.write(locAnomaly, '0')
+        rightAns += 1
+
+    else:
+        worksheet.write(locAnomaly, '1')
+    index += 1
+
+result_precent = rightAns / (index - 2)
+print("result_precent", result_precent)
+print("rightAns we got ", rightAns)
+# Finally, close the Excel file
+# via the close() method.
+workbook.close()
+
