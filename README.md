@@ -22,7 +22,7 @@ anomaly_predicted_wrong =  0
 
 ### Confution matrix and accuracy
 
-|  | non_anomaly_predicted | predicted |
+|  | non_anomaly_predicted |anomaly_predicted |
 | --- | --- | --- |
 | actual non anomaly | 214184 | 41463 |
 | actual anomaly | 0 | 1022 |
