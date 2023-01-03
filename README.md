@@ -1,6 +1,6 @@
-# StreamlitApps_AnomalyDetection
+# StreamlitApps AnomalyDetection
 
-in this project we got dataset of anomaly files and then by using clustring k ml approch and midean aproch we mange to clasifed correctly 84 precent of the data that we got, you can read more about it down below.
+## in this project we got dataset of anomaly files and then by using clustring k ml approch and midean aproch we mange to clasifed correctly 84 precent of the data that we got, you can read more about it down below.
 
 ![image](https://user-images.githubusercontent.com/73063199/210398975-0a764957-33ea-4519-8515-fc4256a49b95.png)
 
