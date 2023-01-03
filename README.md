@@ -1,10 +1,15 @@
-## for itai 
-result:
+## result: for itai 
+
 sum_of_non_anomaly =  255647
+
 non_anomaly_predicted =  214184
+
 non_anomaly_predicted_wrong =  41463
+
 sum_of_anomaly =  1022
+
 anomaly_predicted =  1022
+
 anomaly_predicted_wrong =  0
 
 #### accuracy = (non_anomaly_predicted + anomaly_predicted) / (sum_of_non_anomaly + sum_of_anomaly)
@@ -16,14 +21,11 @@ anomaly_predicted_wrong =  0
 #### recall = 100 %
 
 ### Confution matrix and accuracy
-+--------------------+-----------------------+-------------------+
-|                    | non_anomaly_predicted | anomaly predicted |
-+====================+=======================+===================+
-| actual non anomaly | 214184                | 41463             -
-+--------------------+-----------------------+-------------------+
-| actual anomaly     | 0                     | 1022              -
-+--------------------+-----------------------+-------------------+
 
+|  | non_anomaly_predicted | predicted |
+| --- | --- | --- |
+| actual non anomaly | 214184 | 41463 |
+| actual anomaly | 0 | 1022 |
 
 
 # StreamlitApps AnomalyDetection
