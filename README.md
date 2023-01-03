@@ -1,3 +1,31 @@
+## for itai 
+result:
+sum_of_non_anomaly =  255647
+non_anomaly_predicted =  214184
+non_anomaly_predicted_wrong =  41463
+sum_of_anomaly =  1022
+anomaly_predicted =  1022
+anomaly_predicted_wrong =  0
+
+#### accuracy = (non_anomaly_predicted + anomaly_predicted) / (sum_of_non_anomaly + sum_of_anomaly)
+#### accuracy = (214184 + 1022) / (255647 + 1022)
+#### accuracy = 83.84 % 
+
+#### recall = anomaly_predicted / sum_of_anomaly
+#### recall = 1022 / 1022
+#### recall = 100 %
+
+### Confution matrix and accuracy
++--------------------+-----------------------+-------------------+
+|                    | non_anomaly_predicted | anomaly predicted |
++====================+=======================+===================+
+| actual non anomaly | 214184                | 41463             -
++--------------------+-----------------------+-------------------+
+| actual anomaly     | 0                     | 1022              -
++--------------------+-----------------------+-------------------+
+
+
+
 # StreamlitApps AnomalyDetection
 
 ## in this project we got dataset of anomaly files and then by using clustring k ml approch and midean aproch we mange to clasifed correctly 84 precent of the data that we got, you can read more about it down below.
