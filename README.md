@@ -1,8 +1,8 @@
 ## result: for itai 
 
-sum_of_non_anomaly =  255647
+sum_of_non_anomaly =  255648
 
-non_anomaly_predicted =  214184
+non_anomaly_predicted =  214185
 
 non_anomaly_predicted_wrong =  41463
 
@@ -13,7 +13,7 @@ anomaly_predicted =  1022
 anomaly_predicted_wrong =  0
 
 #### accuracy = (non_anomaly_predicted + anomaly_predicted) / (sum_of_non_anomaly + sum_of_anomaly)
-#### accuracy = (214184 + 1022) / (255647 + 1022)
+#### accuracy = (214185 + 1022) / (255648 + 1022)
 #### accuracy = 83.84 % 
 
 #### recall = anomaly_predicted / sum_of_anomaly
@@ -24,7 +24,7 @@ anomaly_predicted_wrong =  0
 
 |  | non_anomaly_predicted |anomaly_predicted |
 | --- | --- | --- |
-| actual non anomaly | 214184 | 41463 |
+| actual non anomaly | 214185 | 41463 |
 | actual anomaly | 0 | 1022 |
 
 
